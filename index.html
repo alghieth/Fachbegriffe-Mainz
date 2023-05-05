@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fachbegriffe Mainz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  </head>
+  <body>
+    <!-- start landing page-->
+    <div class="container">
+    <div class="landing1">
+    <h1>Fachbegriffe Mainz</h1>
+    <p>7/2022</p>
+    </div>
+    <!-- end landing page-->
+    <!-- start button section -->
+<div class="button-section">
+    <button onclick="putRandomWord()" class="btn btn-primary" type="button">Click Here To Pick Random One</button>
+    <div class="random-word-box">
+    <p id="demo"></p>
+    </div>
+    <button id="withStar" onclick="pickOneWord()" class="btn btn-primary" type="button">Marked With Star</button>
+    <button id="theAnswer" onclick="gitTheAnswe()" class="btn btn-primary" type="button">Show The Answer</button>
+    <div class="box">
+      <p class="box-item" id="stars"></p>
+      <p class="box-item" id="answers" style="display: none"></p>
+    </div>
+</div>
+    <!-- start button section -->
+</div>
+
+
+    <script src="js/script.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

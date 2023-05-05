@@ -1,0 +1,60 @@
+.body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    height: 785px;
+}
+.landing1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin: 50px 0 50px 0;
+    padding: 20px;
+    border-bottom: 1px solid blue;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.landing p,
+.landing h1 {
+    margin: 0;
+    padding: 0;
+}
+
+/* button section */
+.button-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+.random-word-box {
+    height: 80px;
+    text-align: center;
+    background-color: rgb(230, 222, 222);
+    border-radius: 10px;
+    padding-top: 5px;
+}
+#demo {
+    font-size: 1.3rem;
+}
+.box {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    text-align: center;
+    gap: 5px;
+}
+@media (max-width: 767px) {
+    .box {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+    }
+}
+.box-item {
+    background-color: rgb(230, 222, 222);
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+}
