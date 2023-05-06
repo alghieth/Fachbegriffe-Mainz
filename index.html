@@ -9,30 +9,35 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
   </head>
   <body>
-    <!-- start landing page-->
-    <div class="container">
-    <div class="landing1">
-    <h1>Fachbegriffe Mainz</h1>
-    <p>7/2022</p>
-    </div>
-    <!-- end landing page-->
+  <div class="container">
+      <!-- start landing page-->
+      <div class="landing1">
+      <h1>Fachbegriffe Mainz</h1>
+      <p>7/2022</p>
+      </div>
+      <!-- end landing page-->
+
     <!-- start button section -->
-<div class="button-section">
-    <button onclick="putRandomWord()" class="btn btn-primary" type="button">Click Here To Pick Random One</button>
-    <div class="random-word-box">
-    <p id="demo"></p>
-    </div>
-    <button id="withStar" onclick="pickOneWord()" class="btn btn-primary" type="button">Marked With Star</button>
-    <button id="theAnswer" onclick="gitTheAnswe()" class="btn btn-primary" type="button">Show The Answer</button>
-    <div class="box">
-      <p class="box-item" id="stars"></p>
-      <p class="box-item" id="answers" style="display: none"></p>
+    <div class="button-section">
+      <button onclick="putRandomWord()" class="btn btn-primary" type="button">Click Here To Pick Random One</button>
+      <div class="random-word-box">
+      <p id="demo"></p>
+      </div>
+      <button id="withStar" onclick="pickOneWord()" class="btn btn-primary" type="button">Marked With Star</button>
+      <div class="box">
+        <p class="box-item" id="stars"></p>
+        <p class="box-item" id="answers" style="display: none"></p>
+      </div>
+      <input id="answer-box" type="text" class="answer" placeholder="Write Your Answer Here">
+      <button id="theAnswer" onclick="gitTheAnswe()" class="btn btn-primary" type="button">Chick The Answer</button>
     </div>
 </div>
-    <!-- start button section -->
-</div>
+<!-- end  button section -->
 
-
+<!-- footer section -->
+<footer>
+  Alghieth Melhem &#169; All Right Reserved 
+</footer>
     <script src="js/script.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
   </body>

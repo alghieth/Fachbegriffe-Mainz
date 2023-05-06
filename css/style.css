@@ -44,7 +44,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     text-align: center;
-    gap: 5px;
+    gap: 10px;
 }
 @media (max-width: 767px) {
     .box {
@@ -57,4 +57,28 @@
     padding: 5px;
     border-radius: 10px;
     font-size: 1.3rem;
+    margin: 0;
+}
+.box-item:last-child {
+    background-color: rgb(158, 240, 195);
+    color: green;
+}
+.answer {
+    background-color:  rgb(230, 222, 222);
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+footer {
+    background-color: #0d6efd;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
 }

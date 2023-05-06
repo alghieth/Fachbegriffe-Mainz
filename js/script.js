@@ -1,34 +1,68 @@
+let answerBtn = document.getElementById("theAnswer");
+let stars = document.getElementById("stars");
+let answers = document.getElementById("answers");
+let answerBox = document.getElementById("answer-box");
+let i = 0;
 
+// Words that marked With starts
 let WithStar = "Regio frontalis / Frons*-Regio mentalis / Mentum*-Thorax, Steth / Pectus*-Costa(e)*-Dorsum / Regio Dorsalis*-Venter, Abdomen / ventral*-Regio epigastrica, Epigastrium / epigastrisch*-Axilla*-Brachium*-Antebrachium*-Cubitus*-Articulatio cubiti*-Fossa*-Manus*-Dorsum manus*-Digitus(Digiti) manus*-Pollex, Digitus manus I*-Annularius, Digitus manus IV*-Phalanx(Phalangen) (proximalis,    media, distalis)*-Unguis / Unguis incarnatus / subungual* -Pelvis*-Calcis*-Planta pedis, Planta*-Digitus(Digiti) pedis / Digitus malleus*-Os(Ossa)*-Ostitis*-Extremität(en)*-Bursa synovialis*-Vagina synovialis tendinis*-Cranium*-Os frontale*-Lobus*-Lobus frontalis*-Os parietale*-Os temporale*-Processus styloideus*-Processus mastoideus*-Os occipitale / Occiput*-Os sphenoidale*-Os ethmoidale*-Os nasale*-Cartilago septi nasi*-Os zygomaticum*-Arcus zygomaticus*-Os hyoideum*-Maxilla*-Mandibula*-Vertebra / vertebral*-Processus spinosus*-Processus articularis(articulares)*-Processus costalis*-Columna vertebralis / Columna*-Vertebrae cervicales (pl.)*-Atlas (Vertebra cervicalis I)*-Axis (Vertebra cervicalis II)*-Vertebra prominens (V. cervicalis VII)*-Vertebrae thoracicae*-Vertebrae lumbales*-Vertebrae sacrales / Os sacrum*-Kauda*-Scapula*-Klavikula*-Omarthrose*-Articulatio akromioklavikularis*-Humerus / Humerusfraktur*-Caput humeri*-Olekranon*-Ulna*-Radius*-Articulatio carpometacarpalis / Articulatio carpometacarpalis I (pollicis)*-Carpus / Ossa carpi, Ossa carpalia*-Os scaphoideum*-Os lunatum*-Os pisiforme*-Ossa metacarpi, Ossa metacarpalia*-Os ilium*-Crista iliaca*-Os ischii / Tuber ischiadicum*-Os pubis*-Symphysis pubica, Symphyse*-Coxa*-Articulatio coxae*-Acetabulum*-Coxitis*-Coxarthrose*-Femur, Os femoris*-Caput femoris*-Collum femoris*-Trochlea*-Trochanter major / minor*-Meniscus*-Meniscus lateralis*-Meniscus medialis*-Gonarthrose*-Crus*-Tibia*-Caput tibiae, Plateau tibialis*-Fibula*-Malleolus lateralis*-Malleolus medialis*-Tarsus / Ossa tarsi, Ossa tarsalia*-Talus*-Calcaneus*-Os naviculare**-Os cuneiforme*-Kondylus, Kondyle*-Epikondylus, Epikondyle*-Cartilago, Chondros*-Chondritis*-Ossifikation*-Musculus pectoralis major / minor*-Musculus rectus abdominis*-Musculus gluteus maximus / minimus*-Musculus quadriceps femoris*-Ligamentum cruciatum anterius /posterius*-Ligamentum patellae*-Ligamentum inguinale*-Canalis inguinalis*-Canalis vertebralis*-Thenar*-Rigidität, Rigor / rigide*-magnus, major, maximus*-parvus, minor, minimus*-longus / brevis*-Origo / Insertio *"
 let withStar2 = "Umbilicus, Omphalos*-Funiculus umbilicalis / Funiculus*-Funiculus spermaticus*-Omphalitis*-Isthmus*-Frenulum*-Mukosa*-Traumatologie / Traumatologe*-Polytrauma*-polytraumatisiert*-Vulnerabilität / vulnerabel*-Arthralgie*-Arthritis urica, Urikopathie*-Arthrose, Osteoarthrose*-Ankylose*-Pseudarthrose*-Arthroskopie*-Discus intervertebralis*-Diskusprolaps*-Lumbago, Lumbalgie*-Kyphose*-Lordose*-Skoliose*-Genu valgum*-Genu varum*-Pes equinovarus*-Pes planus*-Myalgie*-Myositis*-Vs. Myelitis*-Amyotrophie, Muskelatrophie*-Muskeldystrophie*-Myasthenie / Myasthenia gravis*-Torticollis*-Tendovaginitis, Tendosynovitis*-Osteomyelitis*-Periost*-Periostitis*-Osteoporose*-Osteom / Osteosarkom*-Fraktur*-frakturiert*-Frakturfragment / Fragment*-Dislokation*-Luxation*-Konstriktion, Striktur*-Cerebrum*-Cerebellum*-Diencephalon*-Truncus cerebri, Truncus encephali*-Pons*-Mesencephalon , Midbrain*-Cortex cerebri / Cortex*-Enzephalitis*-Cephalgie*-Medulla spinalis, Myelon*-Gyrus cerebri*-Meningen*-Dura mater*-Pia mater*-Meningitis*-Liquor cerebri / Liquor cerebrospinalis*-Hydrozephalus*-Tentorium*-Ganglion*-Plexus*-Nervus olfactorius 1*-Nervus opticus 2*-Nervus facialis 7*-Nervus phrenicus, diaphragmaticus*-Neuritis*-Radix*-Commotio / Contusio / Compressio cerebri*-Epilepsie*-Parkinson*-Spina bifida*"
 
-
+// the answers
 let theAnswer2 = "Nabel-Nabelschnur / dünnes Seil, Strang-Samenstrang-Nabelentzündung-Enge-Bändchen, kleine Schleimhautfalte-Schleimhaut-Unfallmedizin, Unfallheilkunde, Verletzungskunde,Wundenkunde / Unfallmediziner-Mehrfachverletzung-mehrfachverletzt-Anfälligkeit / verletzlich, verwundbar-Gelenkschmerzen-Gicht-Gelenkverschleiß, degenerative Gelenkerkrankung-Gelenkversteifung-Falschgelenk-Gelenkspiegelung-Bandscheibe, Zwischenwirbelscheibe-Bandscheibenvorfall-Hexenschuss-Wirbelsäulenkrümmung nach hinten-Wirbelsäulenkrümmung nach vorne-seitliche Wirbelsäulenkrümmung-X_Bein-O_Bein-Klumpfuß-Plattfuß-Muskelschmerzen-Muskelentzündung-Rückenmarksentzündung-Muskelschwund-Muskelschwäche, Muskelschwund-Muskelschwäche / autoimmune Muskelschwäche-Schiefhals-Sehnenscheidenentzündung-Knochenmarkentzündung-Knochenhaut-Knochenhautentzündung-Knochenschwund-gutartige / bösartige Knochengeschwulst-Knochenbruch-gebrochen-Bruchstück / Stück-Verlagerung, Fehlstellung, Versetzung, Umsetzung-vollständige Verrenkung, Ausrenkung, Auskugelung-Verengung, Einengung, Einschnürung-Großhirn-Kleinhirn-Zwischenhirn-Hirnstamm-Brücke-Mittelhirn-Großhirnrinde / Rinde-Gehirnentzündung-Kopfschmerzen-Rückenmark-Gehirnwindung-Hirn_ und Rückenmarkshäute-harte Hirnhaut-weiche, innere Hirnhaut-Hirnhautentzündung-Gehirnwasser / Gehirn_ und Rückenmarksflüssigkeit-Wasserkopf-Zelt-Nervenknoten, Überbein-Geflecht-Riechnerv-Sehnerv-Gesichtsnerv-Zwerchfellnerv-Nervenentzündung-Wurzel-Gehirn_ erschütterung / prellung / quetschung-Krampfanfall, Fallsucht, Krampfleiden-Schüttellähmung-Wirbelspalt, offene Wirbelsäule"
-let withStar2Arr = withStar2.split("-");
-let theAnswer2Arr = theAnswer2.split("-");
 let theAnswer = "Stirnregion / Stirn-Kinnregion / Kinn-Brustkorb / Brust-Rippe(n)-Rücken / Rückenregion-Bauch / bauchseitig-Oberbauch, Magengrube / Oberbauch betreffend-Achselhöhle-Oberarm-Unterarm-Ellenbogen-Ellenbogengelenk-Grube-Hand-Handrücken-Finger-Daumen-Ringfinger-Finger, oder Zehenglied(Finger, oder Zehenglieder)(grundglied , mittelglied , endglied)-Nagel / eingewachsener Zehennagel / unter dem Nagel-Becken-Ferse, Hacke-Fußsohle-Zehe(n) / Hammerzehe-Knochen / Mund-Knochenentzündung-Gliedmaße(n)-Schleimbeutel, Gleitbeutel-Sehnenscheide-Schädel-Stirnbein-Lappen (Sng.)-Stirnlappen, vordere Hirnlappen-Scheitelbein-Schläfenbein-Griffelfortsatz (des Schläfenbeins)-Warzenfortsatz (des Schläfenbeins)-Hinterhauptbein / Hinterkopf-Keilbein-Siebbein-Nasenbein-Septumknorpel-Jochbein-Jochbogen-Zungenbein-Oberkiefer-Unterkiefer-Wirbel / die Wirbel betreffend-Dornfortsatz-Gelenkfortsatz(ätze)-Rippenfortsatz-Wirbelsäule / Säule-Halswirbel (pl.)-Träger, Nicker, 1. Halswirbel-Dreher, 2. Halswirbel-7. Halswirbel-Brustwirbel (pl.)-Lendenwirbel (pl.)-Kreuzbeinwirbel / Kreuzbein-Schwanz, Endstück-Schulterblatt-Schlüsselbein-Schultergelenkverschleiß-Schultereckgelenk, kleines Schultergelenk-Oberarmknochen / Oberarmbruch-Oberarmknochenkopf-Ellenbogenspitze-Elle-Speiche-Handwurzel,Mittelhand,Gelenk / Daumensattelgelenk-Handwurzel / Handwurzelknochen-Kahnbein-Mondbein-Erbsenbein-Mittelhandknochen-Darmbein-Darmbeinkamm-Sitzbein / Sitzbeinhöcker-Schambein-Schambeinfuge-Hüfte, Hüftregion-Hüftgelenk-Hüftgelenkspfanne-Hüftgelenkentzündung-Hüftgelenkverschleiß-Oberschenkel, Oberschenkelknochen-Oberschenkelkopf, Hüftkopf-Oberschenkelhals-Rolle, Rollknorpel, Walze, Flaschenzug-großer / kleiner Rollhügel-scheibenförmiger Kniegelenkknorpel-Außenmeniskus-Innenmeniskus-Kniegelenkverschleiß-Unterschenkel, Schenkel, Bein-Schienbein-Schienbeinkopf-Wadenbein-Außenknöchel-Innenknöchel-Fußwurzel / Fußwurzelknochen-Sprungbein-Fersenbein-Kahnbein-Keilbein-Gelenkkopf, Knochengelenk, Gelenkknöchel-Gelenkhöcker-Der Knorpel-Knorpelentzündung-Verknöcherung-großer / kleiner Brustmuskel-gerader Bauchmuskel-großer / kleiner Gesäßmuskel-vierköpfiger Oberschenkelmuskel-vorderes / hinteres Kreuzband-Kniescheibenband, Kniescheibensehne-Leistenband-Leistenkanal-Wirbelkanal, Rückenmarkskanal-Daumenballen-Steifigkeit, Starrheit, Starre / steif, starr-groß-klein-lang / kurz-Ursprung, Muskelursprung / Ansatz, Muskelansatz"
+
+// creat arrays
 let starsArr = WithStar.split("-");
 let answersArr = theAnswer.split("-");
-
-
+let withStar2Arr = withStar2.split("-");
+let theAnswer2Arr = theAnswer2.split("-");
 let totalStar = starsArr.concat(withStar2Arr);
 let totalAnswer = answersArr.concat(theAnswer2Arr);
-console.log(totalStar);
-console.log(totalAnswer);
 
-let stars = document.getElementById("stars");
-let answers = document.getElementById("answers");
+// to creat random word wich marked with stars
 function pickOneWord() {
-    let randomNumber = Math.floor(Math.random() * 75);
+    // creat random number
+    let randomNumber = Math.floor(Math.random() * 201);
+    // put the random word from the stars Array
     stars.innerHTML = totalStar[randomNumber];
+    // choos the same number of answers Array
     answers.innerHTML = totalAnswer[randomNumber];
+    // hide the answer box
     answers.style.display = "none";
-}
-function gitTheAnswe() {
-    answers.style.display = "block";
+    // To Make Write Box Empty Agaon
+    answerBox.value = "";
+    // reset i value and return color and button value
+    i = 0
+    answerBtn.style.background = "#0d6efd";
+    answerBtn.innerHTML = "Chick The Answer";
 }
 
-//--------------------------------------------------------------
+// to chick the answers
+function gitTheAnswe() {
+    // increasing i value
+    i++;
+    let answerText = answerBox.value;
+    let chikingTxt = answers.innerHTML;
+    // chicking the answers
+    if (answerText == "") {
+        answers.style.display = "none";
+    } else if (chikingTxt.includes(answerText) || i === 3) {
+        answers.style.display = "block";
+        answerBtn.style.background = "green";
+        answerBtn.innerHTML = "Right Answer";
+    }
+    // change button color
+    if (i === 1 & answerText !== "" & chikingTxt.includes(answerText) == false) {
+        answerBtn.style.background = "red";
+        answerBtn.innerHTML = "Wrong Answer Try Again";
+    } else if (i === 2 & answerText !== "") {
+        answerBtn.style.background = "green";
+        answerBtn.innerHTML = "Show The Right Answer";
+    }
+}
+
+// Pick Random Word section
 
 let randomWords1 = "Schläfenregion#Luftröhrenentzündung#Tracheoskopie*#Luftröhrenspiegelung#Tracheotomie*#Luftröhrenschnitt#Tracheomalazie#Luftröhrenerweichung#Tracheostoma#bronchial#Fußwurzel#Fußwurzelknochen#Talus*#Schläfe#Truncus#Torso#Rumpf#Körperstamm#Stamm#Rumpf#Körperstamm#Thorax#Steth-#Pectus*#Brustkorb#Brust#Sternum*#Brustbein#Processus xiphoideus#Processus ensiformis#Processus#Xiphoid*#Schwertfortsatz#Fortsatz#Schwert#Costa(e)*#Rippe(n)#intercostal#zwichen den Rippen#Dorsum#Regio Dorsalis*#Rücken#Rückenregion#Venter#Abdomen#ventral*#Bauch#bauchseitig#Regio epigastrica#Epigastrium#epigastrisch*#Oberbauch#Magengrube#Nabelregion#Regio lumbalis#Lendenregion#Lendenbereich#Lendengegend → r+l#Dentalgie#Zahnschmerzen#Gingiva*#Zahnfleisch#Gingivitis*#Regio hypogastrica#Schambereich, Schamgegend#Regio iliaca#Unterbauch → r+l#Regio inguinalis#Leistenregion#Leistengegend#Leiste → r+l#Regio glutealis#Gesäßregion#Gesäßgegend → r+l#Extremität(en)*#Gliedmaße(n)#obere Extremität:#Oberbauch betreffend#Regio hypochondriaca#Hypochondrium#Oberbauch unter den Rippenbögen → r+l#Mesogastrium#Mittelbauch#Regio umbilicalis#Axilla*#Achselhöhle#Brachium*#Oberarm#Antebrachium*#Unterarm#Cubitus*#Ellenbogen#Articulatio cubiti*#Ellenbogengelenk#Fossa cubitalis#Ellenbogengrube#Regio cubitalis anterior#Regio cubiti#anterior#Ellenbeuge#Fossa*#Grube#Skelett#Knochengerüst#Os(Ossa)*#Knochen#Mund#Manus*#Hand#Dorsum manus*#Handrücken#Palma manus#Volar#volaris#hohlhandwärts#in Bezug auf die Handfläche#handflächenwärts#Digitus(Digiti) manus*#Finger#Pollex#Digitus manus I*#Daumen#Index, Digitus manus II#Zeigefinger#Medius#Digitus manus III#Mittelfinger#Annularius#Digitus manus IV*#Ringfinger#Digitus minimus#Digitus manus V#kleiner Finger#Phalanx(Phalangen) (proximalis, media, distalis)*#Finger- oder Zehenglied(Finger- oder Zehenglieder)#(grundglied - mittelglied - endglied)#Unguis digitus manus #pedis#Fingernagel #Zehennagel#Unguis#Unguis incarnatus / subungual*#Nagel#eingewachsener Zehennagel#unter dem Nagel#Pelvis*#Becken#Mons pubis#Mons veneris#Schamberg#Schamhügel#Venushügel#Sura#Regio suralis#Wade#Wadenregion#Poplitea#Fossa poplitea#Kniekehle#Calcis*#Ferse#Hacke#Pes#Fuß(Füße)#Dorsum pedis#Fußrücken#Planta pedis#Planta*#Kinn#Pauke#Tuba auditiva#Tuba Eustachii#Ohrtrompete#eustachische Röhre#Bucca#Vola manus#Handfläche#Palmar#Palmaris#Regio buccalis*#Wange#Fußsohle#plantar#sohlenflächenwärts#im Bezug auf Fußsohle#Digitus(Digiti) pedis#Digitus malleus*"
 let randomWords2 = "Zehe(n)#Hammerzehe#Hallux#Digitus pedis I*#Großzehe#Anatomie (Knochen)#Ostitis*#Knochenentzündung#Articulatio#Arthron#Arthr-#Das Gelenk#Membrana synovialis#Synovialis#Gelenkinnenhaut#Gelenkschleimhaut#Synovitis#Gelenkschleimhautentzündung#Gelenkinnenhautentzündung#Bursa synovialis*#Schleimbeutel#Gleitbeutel#Bursitis#Schleimbeutelentzündung#Vagina synovialis tendinis*#Sehnenscheide#artikulär, artikularis*#die Gelenke betreffend#zum Gelenk gehörend#Cranium*#Schädel#Calvaria#Schädeldach#Basis cranii#Schädelbasis#Cavum cranii#Schädelhöhle#Ossa cranii#Schädelknochen#Os frontale*#Stirnbein#Lobus*#Lappen (Sng.)#Lobus frontalis*#Stirnlappen#vordere Hirnlappen#Os parietale*#Scheitelbein#Os temporale*#Schläfenbein#Processus styloideus*#Griffelfortsatz (des Schläfenbeins)#Processus mastoideus*#Warzenfortsatz (des Schläfenbeins)#Os occipitale#Occiput*#Hinterhauptbein#Hinterkopf#Foramen magnum#großes Hinterhauptsloch des Schädels#Os sphenoidale*#Keilbein#Os ethmoidale*#Siebbein#Os lacrimale#Tränenbein#Os nasale*#Nasenbein#Cartilago nasi lateralis#Dreiecksknorpel#Cartilago septi nasi*#Septumknorpel#Os zygomaticum*#Jochbein#Arcus zygomaticus*#Jochbogen#Os hyoideum*#Zungenbein#Maxilla*#Oberkiefer#Mandibula*#Unterkiefer#Vertebra#vertebral*#Wirbel#die Wirbel betreffend#Foramen vertebrale#Foramen#Wirbelloch#Loch#Öffnung#Processus vertebra(e)#Wirbelfortsatz(ätze)#Corpus vertebra(e)#Corpus#Wirbelkörper#Körper#Processus spinosus*#Dornfortsatz#Processus transversus(rsi)#Querfortsatz(ätze)#Processus articularis(articulares)*#Gelenkfortsatz(ätze)#Processus costalis*#Rippenfortsatz#Columna vertebralis#Columna*#Wirbelsäule#Säule#Vertebrae cervicales (pl.) *#Halswirbel (pl.)#Atlas (Vertebra cervicalis I) *#Träger, Nicker#1. Halswirbel#Axis (Vertebra cervicalis II) *#Dreher#2. Halswirbel#Vertebra prominens (V. cervicalis VII) *#7. Halswirbel#Vertebrae thoracicae*#Brustwirbel (pl.)#Vertebrae lumbales*#Lendenwirbel (pl.)#Vertebrae sacrales#Os sacrum *#Kreuzbeinwirbel#Kreuzbein#Vertebrae coccygeae#Os coccygeum#Os coccygis*#Steißbeinwirbel#Steißbein#Kauda*#Schwanz#Endstück#Schultergürtel#Scapula*#Schulterblatt#Akromion#Schulterdach#Schulterhöhe#Processus coracoideus#Rabenschnabelfortsatz#Glenoid#Cavitas glenoidalis#Schultergelenkpfanne#Klavikula*#Schlüsselbein#Articulatio glenohumeralis#Articulatio#humeroscapularis#Schultergelenk#Omarthrose*#Schultergelenkverschleiß#Articulatio akromioklavikularis*#Schultereckgelenk, kleines Schultergelenk#obere Extremität:"
