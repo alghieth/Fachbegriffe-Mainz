@@ -7,9 +7,18 @@
     <title>Fachbegriffe Mainz</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.css">
+    
   </head>
   <body>
   <div class="container">
+    <!-- start Hello section -->
+    <div class="hello">
+      <i class="fa-solid fa-user-doctor fa-fade fa-5x" style="color: #ffffff;"></i>
+      <h1>Hello</h1>
+      <h2>Dr. Qamar Al-khadour</h2>
+    </div>
+    <!-- end Hello section -->
       <!-- start landing page-->
       <div class="landing1">
       <h1>Fachbegriffe Mainz</h1>
@@ -17,23 +26,59 @@
       </div>
       <!-- end landing page-->
 
-    <!-- start button section -->
-    <div class="button-section">
-      <button onclick="putRandomWord()" class="btn btn-primary" type="button">Click Here To Pick Random One</button>
-      <div class="random-word-box">
-      <p id="demo"></p>
-      </div>
+    <!-- start custom section -->
+        <!-- random words section -->
+            <div class="button-section">
+              <button onclick="putRandomWord()" class="btn btn-primary" type="button">Click Here To Pick Random One</button>
+                <div class="random-word-box">
+                <p id="demo"></p>
+                </div>
+        <!-- random words section -->
+
       <button id="withStar" onclick="pickOneWord()" class="btn btn-primary" type="button">Marked With Star</button>
       <div class="box">
-        <p class="box-item" id="stars"></p>
-        <p class="box-item" id="answers" style="display: none"></p>
+        <div class="output-section">
+          <div class="output-content">
+            <span  id="stars"></span>
+          </div>
+          <button id="question-sound"><i class="fa-solid fa-volume-high"></i></button>
+        </div>
+        <div class="output-section">
+          <div class="output-content">
+            <span id="answers" style="display: none"></span>
+          </div>
+          <button id="sound"><i class="fa-solid fa-volume-high"></i></button>
+        </div>
       </div>
-      <input id="answer-box" type="text" class="answer" placeholder="Write Your Answer Here">
-      <button id="theAnswer" onclick="gitTheAnswe()" class="btn btn-primary" type="button">Chick The Answer</button>
+      <input id="answer-box" type="text" class="answer" placeholder="Write Your Answer Here ...">
+      <button id="theAnswer" onclick="gitTheAnswe()" class="btn btn-primary" type="button">Check The Answer</button>
+      <p class="interim"></p>
+      
+      <button class="btn record">
+        <p><i class="fa-solid fa-microphone"></i></p>
+      </button>
+      <div
+        class="result"
+        spellcheck="false"
+        placeholder="Text will be shown here"
+        style="display: none;"
+      >
+        <p class="interim"></p>
+      </div>
     </div>
+    
 </div>
-<!-- end  button section -->
 
+<!-- end  custom section -->
+    <script
+    type="module"
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+    nomodule
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="js/languages.js"></script>
     <script src="js/script.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
   </body>

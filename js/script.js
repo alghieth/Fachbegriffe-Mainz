@@ -3,6 +3,13 @@ let stars = document.getElementById("stars");
 let answers = document.getElementById("answers");
 let answerBox = document.getElementById("answer-box");
 let i = 0;
+let helloSection = document.querySelector('.hello');
+
+
+setTimeout(() => {
+    helloSection.style.opacity = '0';
+    helloSection.style.display = 'none';
+}, 3000);
 
 // Words that marked With starts
 let WithStar = "Regio frontalis / Frons*-Regio mentalis / Mentum*-Thorax, Steth / Pectus*-Costa(e)*-Dorsum / Regio Dorsalis*-Venter, Abdomen / ventral*-Regio epigastrica, Epigastrium / epigastrisch*-Axilla*-Brachium*-Antebrachium*-Cubitus*-Articulatio cubiti*-Fossa*-Manus*-Dorsum manus*-Digitus(Digiti) manus*-Pollex, Digitus manus I*-Annularius, Digitus manus IV*-Phalanx(Phalangen) (proximalis,    media, distalis)*-Unguis / Unguis incarnatus / subungual* -Pelvis*-Calcis*-Planta pedis, Planta*-Digitus(Digiti) pedis / Digitus malleus*-Os(Ossa)*-Ostitis*-Extremität(en)*-Bursa synovialis*-Vagina synovialis tendinis*-Cranium*-Os frontale*-Lobus*-Lobus frontalis*-Os parietale*-Os temporale*-Processus styloideus*-Processus mastoideus*-Os occipitale / Occiput*-Os sphenoidale*-Os ethmoidale*-Os nasale*-Cartilago septi nasi*-Os zygomaticum*-Arcus zygomaticus*-Os hyoideum*-Maxilla*-Mandibula*-Vertebra / vertebral*-Processus spinosus*-Processus articularis(articulares)*-Processus costalis*-Columna vertebralis / Columna*-Vertebrae cervicales (pl.)*-Atlas (Vertebra cervicalis I)*-Axis (Vertebra cervicalis II)*-Vertebra prominens (V. cervicalis VII)*-Vertebrae thoracicae*-Vertebrae lumbales*-Vertebrae sacrales / Os sacrum*-Kauda*-Scapula*-Klavikula*-Omarthrose*-Articulatio akromioklavikularis*-Humerus / Humerusfraktur*-Caput humeri*-Olekranon*-Ulna*-Radius*-Articulatio carpometacarpalis / Articulatio carpometacarpalis I (pollicis)*-Carpus / Ossa carpi, Ossa carpalia*-Os scaphoideum*-Os lunatum*-Os pisiforme*-Ossa metacarpi, Ossa metacarpalia*-Os ilium*-Crista iliaca*-Os ischii / Tuber ischiadicum*-Os pubis*-Symphysis pubica, Symphyse*-Coxa*-Articulatio coxae*-Acetabulum*-Coxitis*-Coxarthrose*-Femur, Os femoris*-Caput femoris*-Collum femoris*-Trochlea*-Trochanter major / minor*-Meniscus*-Meniscus lateralis*-Meniscus medialis*-Gonarthrose*-Crus*-Tibia*-Caput tibiae, Plateau tibialis*-Fibula*-Malleolus lateralis*-Malleolus medialis*-Tarsus / Ossa tarsi, Ossa tarsalia*-Talus*-Calcaneus*-Os naviculare**-Os cuneiforme*-Kondylus, Kondyle*-Epikondylus, Epikondyle*-Cartilago, Chondros*-Chondritis*-Ossifikation*-Musculus pectoralis major / minor*-Musculus rectus abdominis*-Musculus gluteus maximus / minimus*-Musculus quadriceps femoris*-Ligamentum cruciatum anterius /posterius*-Ligamentum patellae*-Ligamentum inguinale*-Canalis inguinalis*-Canalis vertebralis*-Thenar*-Rigidität, Rigor / rigide*-magnus, major, maximus*-parvus, minor, minimus*-longus / brevis*-Origo / Insertio *"
@@ -35,7 +42,7 @@ function pickOneWord() {
     // reset i value and return color and button value
     i = 0
     answerBtn.style.background = "#0d6efd";
-    answerBtn.innerHTML = "Chick The Answer";
+    answerBtn.innerHTML = "Check The Answer";
 }
 
 // to chick the answers
@@ -59,9 +66,111 @@ function gitTheAnswe() {
     } else if (i === 2 & answerText !== "") {
         answerBtn.style.background = "green";
         answerBtn.innerHTML = "Show The Right Answer";
+    } 
+}
+//  Text To Speach API 
+let soundBtnAnswer = document.getElementById('sound');
+soundBtnAnswer.addEventListener("click", () => {
+    if (answers.style.display == "block") {
+        // the SpeechSynthesisUtteranc is a Web Speach  API That represents a speach request
+    let utterance = new SpeechSynthesisUtterance(answers.innerText);
+    // Change The language of speaker 
+    utterance.voice = window.speechSynthesis.getVoices()[3];
+    // speak method of speechSynthesis speak the utterance
+    speechSynthesis.speak(utterance); 
+    } else {
+        return false;
     }
+        
+})
+let soundBtn = document.getElementById('question-sound');
+soundBtn.addEventListener("click", () => {
+    // the SpeechSynthesisUtteranc is a Web Speach  API That represents a speach request
+    let utterance = new SpeechSynthesisUtterance(stars.innerText);
+    // Change The language of speaker 
+    utterance.voice = window.speechSynthesis.getVoices()[3];
+    // speak method of speechSynthesis speak the utterance
+    speechSynthesis.speak(utterance); 
+})
+
+// Speach To Text
+const recordBtn = document.querySelector(".record"),
+  result = document.querySelector(".result"),
+  downloadBtn = document.querySelector(".download"),
+  inputLanguage = document.querySelector("#language"),
+  clearBtn = document.querySelector(".clear");
+
+let SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition,
+  recognition,
+  recording = false;
+
+function speechToText() {
+  try {
+    recognition = new SpeechRecognition();
+    recognition.lang = "de";
+    recognition.interimResults = true;
+    recordBtn.querySelector("p").innerHTML = `<i class="fa-solid fa-microphone-slash"></i>`;
+    recordBtn.style.background = "#0b5ed7";
+    recordBtn.style.color = "#fff";
+    recognition.start();
+    recognition.onresult = (event) => {
+      const speechResult = event.results[0][0].transcript;
+      //detect when intrim results
+      if (event.results[0].isFinal) {
+        result.innerHTML += " " + speechResult;
+      } else {
+        //creative p with class interim if not already there
+        if (!document.querySelector(".interim")) {
+          const interim = document.createElement("p");
+          interim.classList.add("interim");
+          result.appendChild(interim);
+        }
+        //update the interim p with the speech result
+        answerBox.value = speechResult;
+      }
+    };
+    recognition.onspeechend = () => {
+      speechToText();
+    };
+    recognition.onerror = (event) => {
+      stopRecording();
+      if (event.error === "no-speech") {
+        alert("No speech was detected. Stopping...");
+      } else if (event.error === "audio-capture") {
+        alert(
+          "No microphone was found. Ensure that a microphone is installed."
+        );
+      } else if (event.error === "not-allowed") {
+        alert("Permission to use microphone is blocked.");
+      } else if (event.error === "aborted") {
+        alert("Listening Stopped.");
+      } else {
+        alert("Error occurred in recognition: " + event.error);
+      }
+    };
+  } catch (error) {
+    recording = false;
+    console.log(error);
+  }
 }
 
+recordBtn.addEventListener("click", () => {
+  if (!recording) {
+    speechToText();
+    recording = true;
+  } else {
+    stopRecording();
+  }
+});
+
+function stopRecording() {
+  recognition.stop();
+  recordBtn.querySelector("p").innerHTML = `<i class="fa-solid fa-microphone"></i>`;
+  recordBtn.style.background = "#0d6efd";
+  recordBtn.style.color = "#fff";
+  recording = false;
+}
 // Pick Random Word section
 
 let randomWords1 = "Schläfenregion#Luftröhrenentzündung#Tracheoskopie*#Luftröhrenspiegelung#Tracheotomie*#Luftröhrenschnitt#Tracheomalazie#Luftröhrenerweichung#Tracheostoma#bronchial#Fußwurzel#Fußwurzelknochen#Talus*#Schläfe#Truncus#Torso#Rumpf#Körperstamm#Stamm#Rumpf#Körperstamm#Thorax#Steth-#Pectus*#Brustkorb#Brust#Sternum*#Brustbein#Processus xiphoideus#Processus ensiformis#Processus#Xiphoid*#Schwertfortsatz#Fortsatz#Schwert#Costa(e)*#Rippe(n)#intercostal#zwichen den Rippen#Dorsum#Regio Dorsalis*#Rücken#Rückenregion#Venter#Abdomen#ventral*#Bauch#bauchseitig#Regio epigastrica#Epigastrium#epigastrisch*#Oberbauch#Magengrube#Nabelregion#Regio lumbalis#Lendenregion#Lendenbereich#Lendengegend → r+l#Dentalgie#Zahnschmerzen#Gingiva*#Zahnfleisch#Gingivitis*#Regio hypogastrica#Schambereich, Schamgegend#Regio iliaca#Unterbauch → r+l#Regio inguinalis#Leistenregion#Leistengegend#Leiste → r+l#Regio glutealis#Gesäßregion#Gesäßgegend → r+l#Extremität(en)*#Gliedmaße(n)#obere Extremität:#Oberbauch betreffend#Regio hypochondriaca#Hypochondrium#Oberbauch unter den Rippenbögen → r+l#Mesogastrium#Mittelbauch#Regio umbilicalis#Axilla*#Achselhöhle#Brachium*#Oberarm#Antebrachium*#Unterarm#Cubitus*#Ellenbogen#Articulatio cubiti*#Ellenbogengelenk#Fossa cubitalis#Ellenbogengrube#Regio cubitalis anterior#Regio cubiti#anterior#Ellenbeuge#Fossa*#Grube#Skelett#Knochengerüst#Os(Ossa)*#Knochen#Mund#Manus*#Hand#Dorsum manus*#Handrücken#Palma manus#Volar#volaris#hohlhandwärts#in Bezug auf die Handfläche#handflächenwärts#Digitus(Digiti) manus*#Finger#Pollex#Digitus manus I*#Daumen#Index, Digitus manus II#Zeigefinger#Medius#Digitus manus III#Mittelfinger#Annularius#Digitus manus IV*#Ringfinger#Digitus minimus#Digitus manus V#kleiner Finger#Phalanx(Phalangen) (proximalis, media, distalis)*#Finger- oder Zehenglied(Finger- oder Zehenglieder)#(grundglied - mittelglied - endglied)#Unguis digitus manus #pedis#Fingernagel #Zehennagel#Unguis#Unguis incarnatus / subungual*#Nagel#eingewachsener Zehennagel#unter dem Nagel#Pelvis*#Becken#Mons pubis#Mons veneris#Schamberg#Schamhügel#Venushügel#Sura#Regio suralis#Wade#Wadenregion#Poplitea#Fossa poplitea#Kniekehle#Calcis*#Ferse#Hacke#Pes#Fuß(Füße)#Dorsum pedis#Fußrücken#Planta pedis#Planta*#Kinn#Pauke#Tuba auditiva#Tuba Eustachii#Ohrtrompete#eustachische Röhre#Bucca#Vola manus#Handfläche#Palmar#Palmaris#Regio buccalis*#Wange#Fußsohle#plantar#sohlenflächenwärts#im Bezug auf Fußsohle#Digitus(Digiti) pedis#Digitus malleus*"
@@ -151,3 +260,6 @@ let textBox = document.getElementById("demo");
 function putRandomWord() {
     textBox.innerHTML = totalRandArr26[Math.floor(Math.random() * 4450)];
 }
+
+
+
