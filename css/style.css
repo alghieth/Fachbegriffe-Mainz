@@ -21,6 +21,7 @@
     gap: 10px;
     opacity: 1;
     transition: opacity 1s;
+    z-index: 1;
 }
 .hello h1,
 .hello h2 {
@@ -50,22 +51,22 @@
 /* end Hello Sectio */
 
 .landing1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    margin: 0;
+    margin: 10px 0 20px 0;
+    color: #fff;
+    border-radius: 6px;
     padding: 20px;
-    font-size: 1.3rem;
     font-weight: bold;
+    background-color: #0d6efd;
+    box-shadow: 1px 1px 5px blue;
 }
-.landing p,
-.landing h1 {
+.landing1 p {
+    background-color: #fff;
+    width: fit-content;
+    color: #0d6efd;
+    padding: 2px 5px;
+    border-radius: 6px;
     margin: 0;
-    padding: 0;
 }
-
 /* button section */
 
 .button-section {
@@ -77,9 +78,23 @@
 .random-word-box {
     height: 80px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(230, 222, 222);
     border-radius: 10px;
     padding-top: 5px;
+    position: relative;
+}
+.random-word-box i {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.3);
 }
 #demo {
     font-size: 1.3rem;
