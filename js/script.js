@@ -75,7 +75,16 @@ soundBtnAnswer.addEventListener("click", () => {
         // the SpeechSynthesisUtteranc is a Web Speach  API That represents a speach request
     let utterance = new SpeechSynthesisUtterance(answers.innerText);
     // Change The language of speaker 
-    utterance.voice = window.speechSynthesis.getVoices()[3];
+    // utterance.voice = window.speechSynthesis.getVoices()[3];
+
+    // Set the language to German
+    utterance.lang = "de-DE";
+    // Set the voice to a German voice
+    var germanVoice = speechSynthesis.getVoices().filter(function(voice) {
+        return voice.lang === 'de-DE';
+        })[0];
+    utterance.voice = germanVoice;
+
     // speak method of speechSynthesis speak the utterance
     speechSynthesis.speak(utterance); 
     } else {
@@ -88,7 +97,14 @@ soundBtn.addEventListener("click", () => {
     // the SpeechSynthesisUtteranc is a Web Speach  API That represents a speach request
     let utterance = new SpeechSynthesisUtterance(stars.innerText);
     // Change The language of speaker 
-    utterance.voice = window.speechSynthesis.getVoices()[3];
+    // utterance.voice = window.speechSynthesis.getVoices()[3];
+     // Set the language to German
+     utterance.lang = "de-DE";
+     // Set the voice to a German voice
+     var germanVoice = speechSynthesis.getVoices().filter(function(voice) {
+         return voice.lang === 'de-DE';
+         })[0];
+     utterance.voice = germanVoice;
     // speak method of speechSynthesis speak the utterance
     speechSynthesis.speak(utterance); 
 })
