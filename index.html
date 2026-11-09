@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fachbegriffe Mainz – FSP Trainer</title>
+    
+    <!-- خط Inter و FontAwesome للأيقونات -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <!-- شاشة الترحيب السريعة -->
+    <div class="hello">
+      <div class="hello-card">
+        <i class="fa-solid fa-stethoscope hello-icon"></i>
+        <h1>Willkommen</h1>
+        <h2>FSP Fachbegriffe Mainz</h2>
+      </div>
+    </div>
+
+    <div class="app-container">
+      <!-- الترويسة الرئيسية -->
+      <header class="app-header">
+        <div class="header-brand">
+          <div class="brand-icon"><i class="fa-solid fa-book-medical"></i></div>
+          <div>
+            <h1>Fachbegriffe Mainz</h1>
+            <p class="subtitle">Medizinisches Vokabeltraining für die Fachsprachprüfung</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- شريط البحث الفوري -->
+      <section class="search-wrapper">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="search" id="search" placeholder="Begriff oder deutsche Übersetzung suchen..." autocomplete="off">
+        </div>
+        <div class="search-resutl"></div>
+      </section>
+
+      <!-- بطاقة التدريب التفاعلي والاختبار (Quiz Card) -->
+      <main class="quiz-card">
+        <div class="card-header">
+          <span class="card-tag"><i class="fa-solid fa-graduation-cap"></i> FSP Trainer</span>
+          <button id="withStar" class="btn btn-outline" type="button">
+            <i class="fa-solid fa-shuffle"></i> Nächste Frage
+          </button>
+        </div>
+
+        <!-- شريط النقاط والتقدم المحفوظ -->
+        <div id="score-display" class="score-bar"></div>
+
+        <!-- مربع السؤال (المصطلح الطبي) -->
+        <div class="term-display-box">
+          <div class="term-content">
+            <span class="term-label">Medizinischer Fachbegriff</span>
+            <h2 id="stars" class="term-text">Bereit zum Starten?</h2>
+          </div>
+          <button id="question-sound" class="btn-icon" title="Aussprache anhören">
+            <i class="fa-solid fa-volume-high"></i>
+          </button>
+        </div>
+
+        <!-- حقل كتابة الإجابة والتحقق -->
+        <div class="answer-input-group">
+          <input id="answer-box" type="text" class="answer-field" placeholder="Deutsche Bedeutung eingeben..." autocomplete="off">
+          <button class="btn btn-mic record" title="Spracheingabe nutzen">
+            <i class="fa-solid fa-microphone"></i>
+          </button>
+        </div>
+
+        <button id="theAnswer" class="btn btn-primary btn-block" type="button">
+          Antwort prüfen
+        </button>
+
+        <!-- مربع إظهار الإجابة الصحيحة -->
+        <div class="answer-reveal-box">
+          <div class="output-content">
+            <span id="answers" style="display: none;"></span>
+          </div>
+          <button id="sound" class="btn-icon" title="Antwort anhören">
+            <i class="fa-solid fa-volume-high"></i>
+          </button>
+        </div>
+      </main>
+
+      <!-- بطاقة استكشاف مصطلح عشوائي وسريع -->
+      <section class="dictionary-card">
+        <div class="dict-header">
+          <h3><i class="fa-solid fa-dice"></i> Zufälliges Vokabel</h3>
+          <div class="button-section">
+            <button class="btn btn-secondary btn-sm" type="button">Neu generieren</button>
+          </div>
+        </div>
+        <div class="random-word-box">
+          <p id="demo">Klicke oben auf "Neu generieren", um einen zufälligen Begriff anzuzeigen.</p>
+          <button id="random-btn" class="btn-icon btn-icon-sm" title="Anhören">
+            <i class="fa-solid fa-volume-high"></i>
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- استدعاء ملفات البيانات والمنطق -->
+    <script src="js/termsData.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
